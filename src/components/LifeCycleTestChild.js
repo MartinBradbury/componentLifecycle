@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
-import LifeCycleTestChild from './LifeCycleTestChild'
 
-export class LifeCycleTest extends Component {
+export class LifeCycleTestChild extends Component {
     constructor(props) {
       super(props)
     
       this.state = {
-         data: 'Loading',
-         conosole: console.log("Constructor 1")
+         data: 'Loading Child',
+         conosole: console.log("ConstructorChild 1")
       }
     }
 
@@ -15,15 +14,15 @@ export class LifeCycleTest extends Component {
     getData() {
         setTimeout(() => {
             this.setState({
-                data: 'Loaded'
+                data: 'Loaded Child'
                 
             })
         }, 3000)
-        console.log("getdata 3")
+        console.log("getdataChild 3")
     }
 
     componentDidMount() {
-        console.log("mount 2")
+        console.log("mountChild 2")
         this.getData()
         
     }
@@ -33,13 +32,11 @@ export class LifeCycleTest extends Component {
 
   render() {
     return (
-      <div>
-        {this.state.data}
-        <LifeCycleTestChild />
+      <div>{this.state.data}
       </div>
       
     )
   }
 }
 
-export default LifeCycleTest
+export default LifeCycleTestChild
